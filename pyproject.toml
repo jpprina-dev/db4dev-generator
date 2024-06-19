@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "simple-api"
+version = "0.1.0"
+description = "This is a simple API for a tech challenge"
+authors = ["Juan Prina <jpprina@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
+
+[tool.black]
+target-version = ["py39"]
+line-length = 99
+color = true
+
+[tool.isort]
+py_version = 39
+line_length = 99
+multi_line_output = 3
+indent = 4
+color_output = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
