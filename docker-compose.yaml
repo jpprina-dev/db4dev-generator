@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    ports:
+      - 1433:1433 
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Standard
+      - SA_PASSWORD=Password!
+      - MSSQL_AGENT_ENABLED=true
+    volumes:
+      - .\scripts:/opt/scripts
+      - .\db\create-database.sql:/opt/create-database.sql:ro
+    command: bash -c /opt/scripts/entrypoint.sh
